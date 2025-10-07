@@ -1,25 +1,24 @@
 # Project README
 
-## 📌 Ordine di esecuzione degli script
+## 📌 Script Execution Order
 
-Per far funzionare correttamente l’intero progetto, **gli script devono essere eseguiti in sequenza**, perché ogni step dipende dall’output dello step precedente.
+To ensure the project works correctly, **the scripts must be executed sequentially**, as each step depends on the output of the previous one.
 
-| Step | Script                        | Descrizione                                                                     |
-| ---- | ----------------------------- | ------------------------------------------------------------------------------- |
-| 1    | `2`    | Genera domande single-passage (`inpair`, `base`, `motivation`).                 |
-| 2    | `2.1` 	| Genera domande dual-passage per maggiore coerenza.                              |
-| 3    | `3`    | Calcola la similarità query → passage con modelli di embedding.                 |
-| 4    | `4`    | Analizza e visualizza le distribuzioni delle similarità.                        |
-| 5    | `5`    | Valuta ogni domanda secondo cinque metriche e salva in JSON.                    |
-| 6    | `6`    | Aggrega media e varianza delle metriche e salva risultati finali in CSV e JSON. |
+| Step | Script | Description |
+| ---- | ------ | ----------- |
+| 1    | `2`    | Generates single-passage questions (`inpair`, `base`, `motivation`). |
+| 2    | `2.1`  | Generates dual-passage questions for better coherence. |
+| 3    | `3`    | Calculates query → passage similarity using embedding models. |
+| 4    | `4`    | Analyzes and visualizes similarity distributions. |
+| 5    | `5`    | Evaluates each question according to five metrics and saves results in JSON. |
+| 6    | `6`    | Aggregates mean and variance of metrics and saves final results in CSV and JSON. |
 
-### ⚠️ Nota importante
+### ⚠️ Important Note
 
+* **Automatic resume**: scripts can resume from the interrupted step if a file already exists, avoiding the need to start over from scratch.
 
+## 📂 Folder Structure
 
-* **Resume automatico**: gli script possono riprendere dal punto interrotto se un file esiste già, evitando di ricominciare da zero.
-
-## 📂 Struttura delle cartelle
 
 ```
 datasets/
@@ -41,9 +40,9 @@ plots/
              └── *.png
 ```
 
-## ✅ Suggerimenti
+## ✅ Tips
 
-* Eseguire gli script uno alla volta nell'ordine indicato.
-* Verificare che i dataset siano scaricati e decompressi correttamente.
-* Usare ambienti virtuali con tutte le dipendenze installate.
-* Controllare i file di output parziali per confermare l’avanzamento del processo.
+* Run the scripts one at a time in the indicated order.  
+* Ensure datasets are downloaded and decompressed correctly.  
+* Use virtual environments with all dependencies installed.  
+* Check partial output files to confirm progress.
